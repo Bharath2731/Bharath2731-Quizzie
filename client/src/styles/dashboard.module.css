@@ -1,0 +1,115 @@
+.container {
+  background-color: #ededed;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+}
+.rightBox {
+  flex: 1;
+  font-family: Poppins;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.rightboxinner {
+  width: 85%;
+  height: 90%;
+}
+.topinfo {
+  height: 40%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.topinfo > div {
+  margin-left: 10px;
+  width: 27%;
+  background-color: white;
+  border-radius: 12px;
+  padding: 10px 20px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+.bigfont {
+  font-size: 50px;
+}
+.mediumfont {
+  font-size: 2rem;
+  font-weight: 500px;
+}
+.quizcreated {
+  color: #ff5d01;
+}
+.questionscreated {
+  color: #60b84b;
+}
+.totalimpressions {
+  color: #5076ff;
+}
+.trendingquizzes {
+  height: 50%;
+}
+.trendingquizzes > h1 {
+  letter-spacing: 1px;
+  color: #474444;
+  font-weight: 600;
+  font-family: Poppins;
+  font-size: 35px;
+}
+.trendingcards{
+    margin: 10px 10px;
+    padding: 10px 15px;
+    background-color: white;
+    width: 20%;
+    height: fit-content;
+    font-family: Poppins;
+    border-radius: 10px;
+
+}
+.trendingcards>p{
+    /* font-size: 15px; */
+    margin-top: 10px;
+    color: #60B84B;
+    width: fit-content;
+}
+.title{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.title>span{
+    font-size: 1.3rem;
+    /* width: fit-content; */
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.views{
+    display: flex;
+    color: #FF5D01;
+}
+.views>span{
+    font-size: 15px;
+}
+.cardsContainer{
+  display: flex;
+  height: fit-content;
+  max-height: 100%;
+  max-width: 100%;
+  flex-wrap: wrap;
+  overflow-y: auto;
+}
+.cardsContainer::-webkit-scrollbar {
+  width: 5px;
+}
+.cardsContainer::-webkit-scrollbar-thumb {
+  background-color: #888;
+  border-radius: 6px;
+  height: 10%;
+}
+
+/* Handle on hover */
+.cardsContainer::-webkit-scrollbar-thumb:hover {
+  background-color: #555;
+}

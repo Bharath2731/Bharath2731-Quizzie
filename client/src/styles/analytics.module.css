@@ -1,0 +1,102 @@
+.container {
+    margin: 0;
+    padding: 0;
+    background-color: #ededed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+  }
+  .rightBox {
+    flex: 1;
+    font-family: Poppins;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .rightBox>h1{
+    margin: 3% 0;
+    color: #5076FF;
+    font-family: Poppins;
+    font-size: 50px;
+    font-weight: 600;
+    text-align: center;
+  }
+  .cardsOuter{
+    width: 70%;
+    height: 80%;
+  }
+  .cardsContainer{
+    height: 90%;
+    overflow-y: auto;
+  }
+  .cardsContainer::-webkit-scrollbar{
+    width: 5px;
+  }
+  .cardsContainer::-webkit-scrollbar-track{
+    background-color: #ededed;
+  }
+  .cardsContainer::-webkit-scrollbar-thumb{
+    background-color: #928c8c;
+    border-radius: 3px;
+  }
+  .cardsTitleBar{
+    border-radius: 10px;
+    background: #5076FF;
+    display: flex;
+  }
+  .cardsTitleBar>span{
+    text-align: center;
+    padding: 10px 0;
+    color: white;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  .sNo{
+    width: 7%;
+  }
+  .quizName{
+    width: 15%;
+  }
+  .createdOn{
+    width: 14%;
+  }
+  .impressions{
+    width: 12%;
+  }
+  .evenIdxCard,.oddIdxCard{
+    display: flex;
+    border-radius: 10px;
+  }
+  .evenIdxCard{
+    background-color: none;
+  }
+  .oddIdxCard{
+    background-color: #B3C4FF;
+  }
+  .evenIdxCard,.oddIdxCard >span{
+    text-align: center;
+    padding: 10px 0;
+    letter-spacing: 1px;
+    font-weight: 600;
+  }
+  .editDeleteShare{
+    display: flex;
+    width: 20%;
+    align-items: center;
+    justify-content: center;
+  }
+  .editDeleteShare>img{
+    margin: 0 2%;
+    transition: all 0.2s;
+    cursor: pointer;
+  }
+  .editDeleteShare>img:hover{
+    scale: 1.2;
+  }
+  .analysisLink{
+    text-decoration:underline;
+    cursor: pointer;
+  }
+  .analysisLink:hover{
+    color: darkgreen;
+  }

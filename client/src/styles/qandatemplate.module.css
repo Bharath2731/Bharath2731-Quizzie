@@ -1,0 +1,237 @@
+.container{
+    padding: 20px 0;
+    background-color: white;
+    min-width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    z-index: 2;
+    transform: translate(-50%,-50%);
+    font-family: Poppins;
+}
+.container>div,input{
+    width: 80%;
+}
+.questionnumbersouter{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.questionnumbers{
+    position: relative;
+    margin: 10px 10px 10px 0;
+    padding: 10px;
+    height: 3vh;
+    width: 3vh;
+    border-radius: 50%;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.15);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #9F9F9F;
+    font-weight: 500;
+
+}
+.currentQuestion{
+    border: 1px solid lightgreen;
+}
+.cancelQuestion{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    height: 11px;
+    width: 11px;
+    border: 1px solid #9F9F9F ;
+    color: red;
+    border-radius: 50%;
+    transition: all 0.3s;
+    scale: 1.1;
+}
+.cancelQuestion:hover{
+    scale: 1.2;
+    color: white;
+    background-color: red;
+    border: 1px solid red;
+    cursor: pointer;
+}
+.plus{
+    background-color: #9F9F9F;
+    color: white;
+    padding: 3px;
+    transition: all 0.2s;
+    font-size: large;
+}
+.plus:hover{
+    scale: 1.1;
+    cursor: pointer;
+}
+.questionnumbersplus{
+    display: flex;
+    align-items: center;
+}
+.maxQuestionsSpan{
+    color: #9F9F9F;
+    letter-spacing: 1px;
+    font-size: medium;
+}
+.questionInput{
+    margin: 10px 0;
+    padding: 10px 12px;
+    border: 2px solid #9F9F9F;
+    border-radius: 10px;
+    outline: none;
+    font-family: Poppins;
+    font-weight: 500;
+    letter-spacing: 1.2px;
+    color: #9F9F9F;
+}
+.optiontype{
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: #9F9F9F;
+    letter-spacing: 1px;
+}
+.optiontype>div{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    text-wrap: nowrap;
+}
+.optiontype>div>input{
+    margin: 0 5px;
+}
+.optionsAndTimer{
+    display: flex;
+    /* align-items: end; */
+    justify-content: space-between;
+}
+.timer{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.timer>span{
+    font-size: medium;
+    letter-spacing: 1px;
+}
+.timings{
+    color: #9F9F9F;
+    margin: 7px 0;
+    padding: 3px 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-size: small;
+    cursor: pointer;
+}
+.selectedTimer{
+    background-color: tomato;
+    color: white;
+}
+
+.canelAndCreateQuiz{
+    margin: 25px 0 15px 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+.canelAndCreateQuiz>button{
+    width: 40%;
+    padding: 8px;
+    font-size: medium;
+    font-weight: 600;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    letter-spacing: 1px;
+    cursor: pointer;
+}
+.cancelBtn{
+    color: #9F9F9F;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 10px 0px rgba(0, 0, 0, 0.25);
+    transition: all 0.3s;
+}
+.cancelBtn:hover{
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.25);
+
+}
+.createQuizBtn{
+    color: white;
+    border-radius: 10px;
+    background: #60B84B;
+    box-shadow: 0px 0px 10px 0px #60B84B;
+}
+.createQuizBtn:hover{
+    box-shadow: 0px 0px 20px 0px #60B84B;
+
+}
+.optionsBox{
+    width: 95%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin: 2px 0;
+}
+.optionsRadio{
+    width: fit-content;
+}
+.optionsBox>input{
+    margin: 10px 5px 5px 0;
+    font-family: POPPINS;
+    letter-spacing: 1.2px;
+    width: auto;
+}
+.optionsInput{
+    color: #9F9F9F;
+    padding: 5px 7px;
+    border: none;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    outline: none;
+}
+.optionsInput:focus{
+    border: 1px solid #9F9F9F;
+}
+.addOption{
+    margin-top:15px;
+    width: 40%;
+    min-width: fit-content;
+    margin-left: 10%;
+    padding: 7px 20px;
+    outline: none;
+    border: none;
+    background-color: white;
+    color: #9F9F9F;
+    border-radius: 10px;
+    box-shadow: 0px 0px 10px 0px #9F9F9F;
+    transition: all 0.2s;
+    font-size: medium;
+    letter-spacing: 1px;
+}
+.addOption:hover{
+    box-shadow: 0px 0px 20px 0px #9F9F9F;
+}
+.correctOptionStyle{
+    background-color: #60B84B;
+    color: white;
+}

@@ -1,0 +1,108 @@
+.container {
+    margin: 0;
+    padding: 0;
+    background-color: #ededed;
+    width: 100%;
+    height: 100vh;
+    display: flex;
+  }
+  .rightBox {
+    flex: 1;
+    font-family: Poppins;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .headingBox{
+    margin: 2% 0;
+    display: flex;  
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+  }
+  .h1{
+    color: #5076FF;
+    font-family: Poppins;
+    font-size: 30px;
+    font-weight: 600;
+  }
+  .orangeText{
+    font-size: medium;
+    letter-spacing: 1px;
+    color: #FF5D01;
+    font-weight: 500;
+  }
+  .questionBox{
+    display: flex;
+    flex-direction: column;
+    width: 90%;
+    overflow-y: auto;
+  }
+  .questionBox::-webkit-scrollbar {
+    width: 7px;
+    background: #f1f1f1;
+  }
+  .questionBox::-webkit-scrollbar-thumb {
+    background-color: #888; /* color of the thumb */
+    border-radius: 6px;
+  }
+  .h2{
+    font-size: large;
+    letter-spacing: 1px;
+    font-weight: 600;
+    margin: 1rem;
+  }
+  .cardsBox{
+    margin: 1rem 0;
+    width: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .cards{
+    background: white;
+    margin: 10px 10px 10px 10px;
+    padding: 2rem 1rem;
+    border-radius: 5px;
+    min-width: 27%;
+    color: #474444;
+  }
+  .span{
+    text-align: center;
+    font-weight: 600;
+    letter-spacing: 1px;
+    min-width: fit-content;
+  }
+  .bigDigits{
+    font-size: x-large;
+    font-weight: 600;
+  }
+  .line{
+    width: 90%;
+    height: 2px;
+    background-color: #D7D7D7;
+    margin: 1rem;
+  }
+  .pollCardsBox{
+    margin: 1rem 0;
+    width: 90%;
+    display: flex;
+    align-items: center;
+  }
+  .pollCards{
+    margin: 1rem;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    width: 20%;
+    padding: 2rem 1rem;
+    color: #474444;
+    justify-content: center;
+    border-radius: 5px;
+  }
+  .pollSpan{
+    font-weight: 600;
+    letter-spacing: 1px;
+    margin: 0 10px;
+  }

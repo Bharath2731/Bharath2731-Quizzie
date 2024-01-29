@@ -1,0 +1,104 @@
+.blurwrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.81);
+    width: 100vw;
+    height: 100vh;
+    z-index: 0;
+}
+.createpopup{
+    padding: 20px 0 10px 0;
+    z-index: 1;
+    background-color: white;
+    width: 40%;
+    border-radius: 12px;
+    font-family: Poppins;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-60%);
+
+}
+.inputdiv{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.inputdiv>input{
+    width: 70%;
+    margin: 10px;
+    border: 1px solid #9f9f9f;
+    color: #9F9F9F;
+    border-radius: 10px;
+    font-family: Poppins;
+    padding: 10px 20px;
+    letter-spacing: 1.5px;
+    font-size: medium;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+}
+.inputdiv>input:focus{
+    outline: none;
+}
+.quiztyeouter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.quiztype{
+    width: 70%;
+    margin: 10px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    letter-spacing: 1px;
+}
+.quiztype>span{
+    font-size: medium;
+}
+.options{
+    color: #9F9F9F;
+    padding: 6px 12px;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+}
+.optionselected{
+    background: #60B84B;
+    color: white;
+}
+.cancelandcontinuebox{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 25px 0;
+}
+.cancelandcontinuebox>div{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cancelbtn, .continuebtn{
+    width: 40%;
+    border: none;
+    padding: 10px;
+    border-radius: 10px;
+    cursor: pointer;
+    font-family: Poppins;
+    font-weight: 500;
+    font-size: medium;
+    letter-spacing: 1px;
+    transition: all 0.3s;
+}
+.cancelbtn:hover{
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25);
+}
+.continuebtn{
+    background-color: #60B84B;
+    color: white;
+}
+.continuebtn:hover{
+    box-shadow: 0px 0px 15px 0px #60B84B;
+
+}

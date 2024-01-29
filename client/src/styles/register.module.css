@@ -1,0 +1,125 @@
+.outerContainer {
+  height: 100vh;
+  width: 100%;
+  margin: 0;
+  background: #f2f2f2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.container {
+  width: 80%;
+  height: 90%;
+  border-radius: 15px;
+  background: #fff;
+  box-shadow: 0px 0px 30px 0px rgba(0, 0, 0, 0.15);
+}
+.container > h1 {
+  margin-top: 3%;
+  text-align: center;
+  color: #474444;
+  font-family: Jomhuria;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 100px;
+  letter-spacing: 1px;
+}
+.links {
+  margin: 50px 0px;
+  font-family: Poppins;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.Link {
+  margin: 0 20px;
+  color: #474444;
+  font-size: medium;
+  text-decoration: none;
+  font-weight: 600;
+  padding: 10px 7%;
+  border-radius: 10px;
+  background: #fff;
+}
+.activeLink {
+  box-shadow: 0px 0px 50px 0px rgba(0, 25, 255, 0.24);
+}
+.inputContainer {
+  margin-top: 25px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.inputContainer > div {
+  display: flex;
+  margin: 15px;
+  align-items: center;
+  width: 50%;
+}
+.inputContainer > div > label {
+  color: #474444;
+  font-family: Poppins;
+  width: 33%;
+  text-align: end;
+  margin: 0 20px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+.inputContainer > div > .input,input {
+  width: 50%;
+  height: 100%;
+  padding: 7px 20px;
+  border: 2px solid #f4f4f4;
+  border-radius: 10px 10px 0px 0px;
+  background: #f4f4f4;
+  font-family: Poppins;
+  letter-spacing: 1.5px;
+}
+/* if the input field is empty or password not matchin with this one then  */
+.inputError{
+  border:1px solid red;
+  box-shadow: 0px 0px 10px 0px red;
+  width: 50%;
+  height: 100%;
+  padding: 7px 20px;
+  border-radius: 10px 10px 0px 0px;
+  background: #f4f4f4;
+  font-family: Poppins;
+  letter-spacing: 1.5px;
+}
+.inputContainer > div > .inputError:focus {
+  outline: none;
+  border: 2px solid red;
+  box-shadow: 0px 0px 10px 0px red;
+}
+.inputContainer > div > .input:focus {
+  outline: none;
+  border: 2px solid #a9bcff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 25, 255, 0.24);
+}
+.inputContainer > div > input:focus {
+  outline: none;
+  border: 2px solid #a9bcff;
+  box-shadow: 0px 0px 10px 0px rgba(0, 25, 255, 0.24);
+}
+.button {
+  font-size: medium;
+  margin-top: 10px;
+  border-radius: 8px;
+  background: #a9bcff;
+  padding: 7px;
+  color: #474444;
+  font-family: Poppins;
+  font-weight: 600;
+  letter-spacing: 1px;
+  border: 2px solid #a9bcff;
+  width: 15%;
+  transition: all 0.5s;
+}
+.button:hover {
+  box-shadow: 0px 0px 25px 0px rgba(0, 25, 255, 0.24);
+  cursor: pointer;
+}
+.button:focus {
+  outline: none;
+}
