@@ -27,6 +27,31 @@ export const getQuizzesFunction = async ()=>{
         throw error
     }
 }
+export const getTrendingQuizzesFunction = async ()=>{
+    try {
+        const url = `${process.env.REACT_APP_BACKEND_ROOT_URL}/quizes/trending`;
+        const jwtoken = localStorage.getItem('jwtoken')
+        const headers={jwtoken}
+        const response = await axios.get(url,{headers})
+        return response
+    } catch (error) {
+        console.log(error)
+        throw error
+    }
+}
+// for analyticspage
+export const getQuizzesForAnalyticsFunction = async ()=>{
+    try {
+        const url = `${process.env.REACT_APP_BACKEND_ROOT_URL}/quizes/analytics`;
+        const jwtoken = localStorage.getItem('jwtoken')
+        const headers={jwtoken}
+        const response = await axios.get(url,{headers})
+        return response
+    } catch (error) {
+        console.log(error)
+        throw error
+    }
+}
 
 // for getting the quiz based on its id
 export const getQuizFunction = async(id)=>{
@@ -76,3 +101,16 @@ export const updateAfterTakingQuizFunction = async (id,quizData)=>{
         throw error
     }
 }
+export const updateAfterEditQuizFunction = async (quiz)=>{
+    try {
+        const url = `${process.env.REACT_APP_BACKEND_ROOT_URL}/quiz/edit/${quiz._id}`
+        const jwtoken = localStorage.getItem('jwtoken')
+        const headers ={jwtoken}
+        const response=await axios.put(url,quiz,{headers})
+        return response
+    } catch (error) {
+        console.log(error)
+        throw error
+    }
+}
+

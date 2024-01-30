@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import Navbar from './Navbar'
 import styles from '../styles/dashboard.module.css'
 import eyeicon from '../images/eyeicon.svg'
-import { getQuizzesFunction } from '../apis/Quiz'
+import { getQuizzesFunction, getTrendingQuizzesFunction } from '../apis/Quiz'
 function Dashboard({setGlobalQuizes}) {
   const [quizesForDashboard,setQuizesForDashboard]= useState([]);
   const [impressionSorted,setImpressionSorted]= useState([]);
@@ -14,6 +14,9 @@ function Dashboard({setGlobalQuizes}) {
         const response = await getQuizzesFunction();
         setQuizesForDashboard(response.data.quizes)
 
+        const allQuizes = await getTrendingQuizzesFunction();
+        setImpressionSorted(allQuizes.data.quizes)
+
         const allquestions = response.data.quizes.reduce((total, quiz) => {
           return total + quiz.questions.length;
         }, 0);
@@ -21,9 +24,6 @@ function Dashboard({setGlobalQuizes}) {
 
         const totalImpressions = response.data.quizes.reduce((total, quiz) => total + quiz.impressions, 0);
         setImpressions(totalImpressions)
-
-        const sortedQuizzes = response.data.quizes.sort((a, b) => b.impressions - a.impressions);
-        setImpressionSorted(sortedQuizzes)
       } catch (error) {
         console.error(error);
       }
@@ -77,6 +77,7 @@ function Dashboard({setGlobalQuizes}) {
                 ))}
             </div>
             {quizesForDashboard.length===0&&<p style={{'fontSize':'2rem',padding:'2%',color:'red',fontWeight:'500',textAlign:'center'}}>No quizzes created , click on <b style={{fontSize:'2rem',color:'#474444'}}>'create quiz'</b> to create quiz</p>}
+            {quizesForDashboard.length!=0&&impressionSorted.length===0&&<p style={{'fontSize':'2rem',padding:'2%',color:'#474444',fontWeight:'500',textAlign:'center'}}>No quiz is trending <b style={{fontSize:'2rem',color:'#474444'}}>'Share your quiz for trending'</b></p>}
         </div>
         
         </div>

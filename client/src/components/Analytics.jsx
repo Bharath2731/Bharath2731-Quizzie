@@ -5,26 +5,21 @@ import shareIcon from "../images/shareIcon.png";
 import editIcon from "../images/editIcon.png";
 import deleteIcon from "../images/deleteIcon.png";
 import DeleteQuiz from "./DeleteQuiz";
-import { getQuizzesFunction } from "../apis/Quiz";
+import UpdateQandA from "./UpdateQandA";
+import { getQuizzesForAnalyticsFunction } from "../apis/Quiz";
 import { useNavigate } from "react-router-dom";
 import {CopyToClipboard} from 'react-copy-to-clipboard';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import QandAtemplate from "./QandAtemplate";
 function Analytics({globalQuizes,setGlobalQuizes}) {
   const [clipBoardText,setClipBoardText]= useState('http://localhost:3000/takeQuiz/')
+  //to show update popup on clicking edit icon
+  const [showupdatePopup,setShowupdatePopup]=useState(false)
+  const [updateQuiz,setUpdateQuiz] = useState();
+
   const navigate = useNavigate()
-  const compareQuizzes = (quizA, quizB) => {
-    const dateA = new Date(quizA.createdOn);
-    const dateB = new Date(quizB.createdOn);
-    // Compare the dates
-    if (dateA < dateB) {
-      return -1; // quizA comes before quizB
-    } else if (dateA > dateB) {
-      return 1; // quizA comes after quizB
-    } else {
-      return 0; // dates are equal
-    }
-  };
+  
   function formatTimestamp(timestamp) {
     const date = new Date(timestamp);
     const monthNames = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
@@ -39,10 +34,8 @@ function Analytics({globalQuizes,setGlobalQuizes}) {
   useEffect(() => {
       const fetchData = async () => {
         try {
-          const response = await getQuizzesFunction();
-          
-          const sortedQuizzes = response.data.quizes.sort(compareQuizzes);
-          setGlobalQuizes(sortedQuizzes)
+          const response = await getQuizzesForAnalyticsFunction();
+          setGlobalQuizes(response.data.quizes)
 
         } catch (error) {
           console.error(error);
@@ -64,10 +57,10 @@ function goToAnalyticsQuiz(quiz){
 function showCopyToast(){
   toast.success('Link copied to Clipboard', {
     position: "top-right",
-    autoClose: 2500,
+    autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
-    pauseOnHover: true,
+    pauseOnHover: false,
     draggable: true,
     progress: undefined,
     theme: "light",
@@ -75,7 +68,11 @@ function showCopyToast(){
     })
 }
 
-
+function handleEditPopup(quiz){
+  setUpdateQuiz(quiz)
+  setShowupdatePopup(true)
+  console.log(quiz)
+}
   return (
       <div className={styles.container}>
       <Navbar/>
@@ -90,7 +87,7 @@ function showCopyToast(){
             <span className={styles.impressions}>Impressions</span>
           </div>
           <div className={styles.cardsContainer}>
-          {globalQuizes.sort(compareQuizzes).map((quiz, idx) => (
+          {globalQuizes.map((quiz, idx) => (
             <div
               key={idx}
               className={`${
@@ -102,7 +99,8 @@ function showCopyToast(){
               <span className={styles.createdOn}>{formatTimestamp(quiz.createdOn)}</span>
               <span className={styles.impressions}>{quiz.impressions}</span>
               <span className={styles.editDeleteShare}>
-                <img src={editIcon} alt="" />
+                <img src={editIcon} alt="" onClick={()=>handleEditPopup(quiz)}/>
+                {(showupdatePopup)&&<UpdateQandA updateQuiz={updateQuiz} setShowupdatePopup={setShowupdatePopup} />}
                 <img src={deleteIcon} alt="" onClick={()=>(handleShowDeleteQuiz(quiz._id))} />
                 <CopyToClipboard text={`${clipBoardText}${quiz._id}`}>
                   <img src={shareIcon} alt="" onClick={showCopyToast}/>

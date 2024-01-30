@@ -1,0 +1,208 @@
+.blurWrapper{
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.50);
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.centerBox{
+    z-index: 1;
+    height: 70%;
+    width: 60%;
+    position: fixed;
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.questions{
+    margin: 1.5rem 0;
+    display: flex;
+    align-items: center;
+    width: 80%;
+    justify-content: space-between;
+}
+.questionNumbers{
+    width: 60%;
+    display: flex;
+}
+.questionNumbers>div{
+    margin: 0 1rem;
+    padding: 10px;
+    height: 3vh;
+    width: 3vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50px;
+    box-shadow: 0 0 10px 0 gray;
+    position: relative;
+}
+.selectedQuestion{
+    border: 1.4px solid rgb(34, 187, 34);
+}
+/* .cancel{
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1px;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    font-size: 10px;
+    height: 11px;
+    width: 11px;
+    border: 1px solid #9F9F9F ;
+    color: red;
+    border-radius: 50%;
+    transition: all 0.3s;
+    scale: 1.1;
+}
+.cancel:hover{
+    scale: 1.2;
+    color: white;
+    background-color: red;
+    border: 1px solid red;
+    cursor: pointer;
+} */
+.questionInput{
+    width: 80%;
+    margin: 1rem 0;
+    font-weight: 600;
+}
+.questionInput>input{
+    width: 95%;
+    height: 100%;
+    border-radius: 10px;
+    outline: none;
+    font-weight: 600;
+}
+.optionTypeDiv{
+    margin: 2rem;
+    display: flex;
+    width: 70%;
+    align-items: center;
+    justify-content: space-between;
+}
+.optionTypeDiv>div{
+    display: flex;
+    align-items: center;
+}
+.optionTypeDiv>div>label{
+    width: fit-content; 
+    text-wrap: nowrap;
+}
+.optionTypeDiv>div>input{
+    margin-right: 3px;
+    cursor: pointer;
+}
+.optionsAndTimer{
+    width: 75%;
+    display: flex;
+    justify-content: space-between;
+}
+.options{
+}
+.optionsBox{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+.optionsRadio{
+    margin: 0;
+    padding: 0;
+    width: fit-content;
+}
+.optionsBox>input{
+    margin: 10px 5px 5px 0;
+    font-family: POPPINS;
+    letter-spacing: 1.2px;
+    width: auto;
+}
+.optionsInput{
+    color: black;
+    font-weight: 500;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: 0px 0px 25px 0px rgba(0, 0, 0, 0.15);
+    border-radius: 5px;
+    outline: none;
+    background-color: white;
+}
+.correctOptionStyle{
+    background-color: #60B84B;
+    color: white;
+}
+.timer{
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+.timer>span{
+    font-size: medium;
+    letter-spacing: 1px;
+}
+.timings{
+    color: #9F9F9F;
+    margin: 7px 0;
+    padding: 3px 10px;
+    width: 100%;
+    border-radius: 10px;
+    background: #FFF;
+    box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.15);
+    text-align: center;
+    font-size: small;
+    cursor: pointer;
+}
+.selectedTimer{
+    background-color: tomato;
+    color: white;
+}
+.cancelAndUpdateBtn{
+    margin-top: 3rem;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.cancelAndUpdateBtn>button{
+    border: none;
+    border-radius: 5px;
+    padding: 7px 0;
+    outline: none;
+    width: 40%;
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+.cancelBtn{
+color: #474444;
+background-color: white;
+box-shadow: 0 0 15px 0 rgb(187, 174, 174);
+
+}
+.cancelBtn:hover{
+    box-shadow: 0 0 25px 0 rgb(187, 174, 174);
+
+}
+.updateBtn{
+    color: white;
+    background-color: #60B84B;
+    box-shadow: 0 0 15px 0 #60B84B;
+}
+.updateBtn:hover{
+    box-shadow: 0 0 25px 0 #60B84B;
+
+}

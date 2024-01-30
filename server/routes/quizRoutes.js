@@ -44,6 +44,49 @@ router.get('/quizes',isUserAuthorized,async(req,res)=>{
         })
     }
 })
+router.get('/quizes/analytics', isUserAuthorized, async (req, res) => {
+    const { email } = req.body.user;
+
+    try {
+        // Fetch quizzes sorted by createdOn in descending order
+        const quizes = await Quiz.find({ createdBy: email })
+            .sort({ createdOn: 1 });
+
+        res.status(200).json({
+            status: 'successful',
+            message: 'quizes retrieved successfully',
+            quizes,
+        });
+    } catch (error) {
+        res.status(400).json({
+            status: 'unsuccessful',
+            message: 'failed to fetch quizes',
+        });
+    }
+});
+
+router.get('/quizes/trending', isUserAuthorized, async (req, res) => {
+    const { email } = req.body.user;
+
+    try {
+        //  quizzes sorted by impressions in descending order
+        //  filter quizzes where impressions are above 10
+        const quizes = await Quiz.find({ createdBy: email, impressions: { $gt: 10 } })
+            .sort({ impressions: -1 });
+
+        res.status(200).json({
+            status: 'successful',
+            message: 'quizes retrieved successfully',
+            quizes,
+        });
+    } catch (error) {
+        res.status(400).json({
+            status: 'unsuccessful',
+            message: 'failed to fetch quizes',
+        });
+    }
+});
+
 
 router.get('/quiz/:id',async(req,res)=>{
     const {id} = req.params;
@@ -107,6 +150,25 @@ router.put('/quiz/submit/:id',async(req,res)=>{
     try {
         const quizData =req.body
         const updatedQuiz = await Quiz.findByIdAndUpdate(id, quizData, { new: true });
+        res.status(200).json({
+            status:'successful',
+            message:'submitted quiz updated',
+            updatedQuiz
+        })
+        
+    } catch (error) {
+        console.error(error);
+        res.status(400).json({
+            status: 'error',
+            message: 'unable to update impressiosn',
+        }); 
+    }
+})
+router.put('/quiz/edit/:id',isUserAuthorized,async(req,res)=>{
+    const {id} = req.params;
+    try {
+        const quiz =req.body
+        const updatedQuiz = await Quiz.findByIdAndUpdate(id, quiz, { new: true });
         res.status(200).json({
             status:'successful',
             message:'submitted quiz updated',

@@ -69,7 +69,6 @@ function QandAtemplate({
     const gettingUpdatedQuestions = [...questions];
     gettingUpdatedQuestions[currentIndex].optionType = e.target.id;
     setquestions(gettingUpdatedQuestions);
-    console.log(questions);
   }
 
   function handleAddOption() {
