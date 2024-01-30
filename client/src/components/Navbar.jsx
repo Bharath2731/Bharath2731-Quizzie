@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "../styles/navbar.module.css";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../images/logo.png";
@@ -7,7 +7,11 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 function Navbar() {
     const navigate = useNavigate()
-    const [loggedIn,setLoggedIn]=(localStorage.getItem('jwtoken'))
+    const [loggedIn,setLoggedIn]=useState(localStorage.getItem('jwtoken'))
+    useEffect(()=>{
+        setLoggedIn(localStorage.getItem('jwtoken'))
+    },[])
+
     const activestyle = ({ isActive }) => ({
         boxShadow: isActive ? " 0px 0px 15px 0px rgba(0, 0, 0, 0.12)" : "",
     });

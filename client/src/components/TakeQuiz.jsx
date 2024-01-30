@@ -11,6 +11,8 @@ function TakeQuiz({ id }) {
   const [selectedOption, setSelectedOption] = useState();
   const referenceQuiz=useRef(null);
   const [showResultDiv,setShowResultDiv] = useState(false)
+  const[timer,setTimer] = useState();
+  const [timeLeft,setTimeLeft]=useState();
   useEffect(() => {
     // console.log(id)
     async function impressionUpdate() {
@@ -27,6 +29,8 @@ function TakeQuiz({ id }) {
         const response = await getQuizFunction(id);
         setQuiz({...response.data.quiz});
         setQuizUpdated({...response.data.quiz});
+        setTimer(response.data.quiz?.timer)
+        setTimeLeft(response.data.quiz?.timer)
         referenceQuiz.current = JSON.parse(JSON.stringify(response.data.quiz));//by doing this it will create copy of that and not reference.
         const initialResults = [];
         for (let i = 0; i < quiz?.questions.length; i++) {
@@ -40,10 +44,34 @@ function TakeQuiz({ id }) {
     fetchQuiz();
   }, []);
 
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setTimeLeft((prevTimer) => {
+        if (prevTimer === 0) {
+          if (currIdx < quiz?.questions.length - 1) {
+            handleNext()
+            return timer;
+          } else {
+            handleSubmit();
+            clearInterval(interval);
+            return prevTimer;
+          }
+        } else {
+          return prevTimer - 1;
+        }
+      });
+    }, 1000);
+
+    // Cleanup interval on component unmount or when moving to the next question
+    return () => clearInterval(interval);
+  }, [timeLeft, currIdx]);
+
+
   function handleNext() {
     if (currIdx < quiz?.questions.length - 1) {
       setCurrIdx(currIdx + 1);
       setSelectedOption()
+      setTimeLeft(timer)
     }
   }
 
@@ -106,7 +134,7 @@ function TakeQuiz({ id }) {
           <span className={styles.questionNumber}>
             0{currIdx + 1}/0{quiz?.questions.length}
           </span>
-          <span className={styles.timer}>Timer</span>
+          {((timer!='off')&&timer)&&<span className={styles.timer}>00:{timeLeft==10?`${timeLeft}s`:`0${timeLeft}s`}</span>}
         </div>
         <div className={styles.questionText}>
           {quiz?.questions[currIdx].question}
