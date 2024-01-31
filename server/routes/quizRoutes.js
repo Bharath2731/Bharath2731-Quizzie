@@ -128,10 +128,7 @@ router.delete('/quiz/:id',isUserAuthorized,async(req,res)=>{
 router.put('/quiz/impressions/:id',async(req,res)=>{
     const {id}= req.params;
     try {
-        let quiz = await Quiz.findById(id);
-        quiz.impressions +=1;
-        await quiz.save()
-        console.log(quiz.impressions)
+        await Quiz.findByIdAndUpdate(id, { $inc: { impressions: 1 } });
         res.status(200).json({
             status:'successfull',
             message:'updated impressions',
