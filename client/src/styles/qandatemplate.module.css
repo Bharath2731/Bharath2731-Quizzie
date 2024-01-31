@@ -213,11 +213,11 @@
     border: 1px solid #9F9F9F;
 }
 .addOption{
-    margin-top:15px;
+    margin-top:7px;
     width: 40%;
     min-width: fit-content;
     margin-left: 10%;
-    padding: 7px 20px;
+    padding: 5px 20px;
     outline: none;
     border: none;
     background-color: white;

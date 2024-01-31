@@ -10,7 +10,7 @@ function ShareLink({handleShowcreatequiz,quizid}) {
     function showCopyToast(){
         toast.success('Link copied to Clipboard', {
           position: "top-right",
-          autoClose: 1500,
+          autoClose: 1000,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
