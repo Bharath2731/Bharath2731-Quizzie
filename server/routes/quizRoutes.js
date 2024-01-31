@@ -146,6 +146,8 @@ router.put('/quiz/submit/:id',async(req,res)=>{
     const {id} = req.params;
     try {
         const quizData =req.body
+        delete quizData.impressions;
+        // const { impressions, ...quizDataToUpdate } = req.body;
         const updatedQuiz = await Quiz.findByIdAndUpdate(id, quizData, { new: true });
         res.status(200).json({
             status:'successful',
