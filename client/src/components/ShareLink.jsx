@@ -10,17 +10,15 @@ function ShareLink({handleShowcreatequiz,quizid}) {
     function showCopyToast(){
         toast.success('Link copied to Clipboard', {
           position: "top-right",
-          autoClose: 2500,
+          autoClose: 1500,
           hideProgressBar: false,
           closeOnClick: true,
           pauseOnHover: true,
           draggable: true,
           progress: undefined,
           theme: "light",
-          fontFamily:'poppins'
           })
           //removing the popup also
-          handleShowcreatequiz()
       }
   return (
     <div className={styles.blurWrapper}>
@@ -36,6 +34,7 @@ function ShareLink({handleShowcreatequiz,quizid}) {
             </CopyToClipboard>
         </div>
       </div>
+      <ToastContainer/>
     </div>
   )
 }

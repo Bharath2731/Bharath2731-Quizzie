@@ -60,11 +60,10 @@ function showCopyToast(){
     autoClose: 2000,
     hideProgressBar: false,
     closeOnClick: true,
-    pauseOnHover: false,
+    pauseOnHover: true,
     draggable: true,
     progress: undefined,
     theme: "light",
-    fontFamily:'poppins'
     })
 }
 

@@ -2,6 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import { getQuizFunction, quizImpressionFunction, updateAfterTakingQuizFunction } from "../apis/Quiz";
 import styles from "../styles/takequiz.module.css";
 import trophy from '../images/trophy.png'
+import axios from "axios";
 function TakeQuiz({ id }) {
   const [quiz, setQuiz] = useState();
   const [quizUpdated, setQuizUpdated] = useState();
@@ -78,21 +79,22 @@ function TakeQuiz({ id }) {
   function handleOptionClick(option,idx) {
     setSelectedOption(idx);
     setResults((prev)=>{
-      const beforeselect = [...prev]
+        if(prev){
+          const beforeselect = [...prev]
       if(option.iscorrect){
         beforeselect[currIdx]=1;
         
       }else{
         beforeselect[currIdx]=0;
       }
-      setResults(beforeselect)
+      
       setQuizUpdated((prev)=>{
         const gettingUpdated = { ...prev };
         // const originalOptionCount = referenceQuiz.current.questions[currIdx].options[idx].optionSelectedBystudent;
         // gettingUpdated.questions[currIdx].options[idx].optionSelectedBystudent = originalOptionCount + 1;
 
         //undoing the selected option and increasing the current selected option
-        for(let i=0;i<gettingUpdated.questions[currIdx].options.length;i++){
+        for(let i=0;i<gettingUpdated?.questions[currIdx].options.length;i++){
           if(i==idx){
             gettingUpdated.questions[currIdx].options[i].optionSelectedBystudent=referenceQuiz.current.questions[currIdx].options[i].optionSelectedBystudent +1;
           }
@@ -103,7 +105,10 @@ function TakeQuiz({ id }) {
         return gettingUpdated;
       })
       console.log(quizUpdated)
-    })
+      // setResults(beforeselect)
+      return beforeselect
+        }
+      })
 
   }
 
@@ -116,9 +121,8 @@ function TakeQuiz({ id }) {
   }
   async function handleSubmit(){
     console.log('final state:',quizUpdated)
-    setFscore(findScore())
     setShowResultDiv(true)
-
+    setFscore(findScore())
     try {
       const response = await updateAfterTakingQuizFunction(id,quizUpdated)
       console.log(response.data)
@@ -126,7 +130,7 @@ function TakeQuiz({ id }) {
       console.log(error.response)
     }
   }
-
+  
   return (
     <div className={styles.container}>
       {!showResultDiv&&<div className={styles.innerBox}>
@@ -148,7 +152,20 @@ function TakeQuiz({ id }) {
               onClick={() => handleOptionClick(option,idx)}
             >
               {quiz?.questions[currIdx].optionType === "text" && (
-                <span className={styles.optionText}>{option?.optionText}</span>
+                <div>
+                  <span className={styles.optionText}>{option?.optionText}</span>
+                </div>
+              )}
+              {quiz?.questions[currIdx].optionType === "imageUrl" && (
+                <div className={styles.onlyImageBox}>
+                  <img src={option.optionUrl} alt="" className={styles.optionImage} />
+                </div>
+              )}
+              {quiz?.questions[currIdx].optionType === "textAndImageUrl" && (
+                <div className={styles.imageandtextBox}>
+                  <span className={styles.optionText}>{option?.optionText}</span>
+                  <img src={option?.optionUrl} alt=""  className={styles.optionImage}/>
+                </div>
               )}
             </div>
           ))}

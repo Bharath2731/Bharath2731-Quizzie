@@ -124,7 +124,22 @@
     font-weight: 600;
     color: #474444;
 }
+.optionImage {
+    height: 6rem;
+    width: auto;
 
+  }
+  .imageandtextBox{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .onlyImageBox{
+    height: fit-content;
+    width: fit-content;
+    pad: 2px;
+  }
 
 /* for mobile view */
 @media screen and (max-width: 768px) {
