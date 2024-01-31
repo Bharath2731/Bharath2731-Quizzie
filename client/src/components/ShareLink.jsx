@@ -6,7 +6,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useState } from 'react'
 function ShareLink({handleShowcreatequiz,quizid}) {
-    const [clipBoardText,setClipBoardText]= useState('http://localhost:3000/takeQuiz/')
+    const [clipBoardText,setClipBoardText]= useState('https://quizzie0724.vercel.app/takeQuiz/')
     function showCopyToast(){
         toast.success('Link copied to Clipboard', {
           position: "top-right",
@@ -25,7 +25,7 @@ function ShareLink({handleShowcreatequiz,quizid}) {
       <div className={styles.inner}>
         <div className={styles.cross}><img src={cross} alt="" onClick={handleShowcreatequiz} /></div>
         <div className={styles.bigtext}><span>Congrats your Quiz is Published!</span></div>
-        <div className={styles.linkdiv}><p>{quizid?`http://localhost:3000/takeQuiz/${quizid}`:'Generating Link....'}</p></div>
+        <div className={styles.linkdiv}><p>{quizid?`https://quizzie0724.vercel.app/${quizid}`:'Generating Link....'}</p></div>
         <div >
             <CopyToClipboard text={`${clipBoardText}${quizid}`}>
                 {quizid?

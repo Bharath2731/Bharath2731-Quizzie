@@ -13,7 +13,7 @@ import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import QandAtemplate from "./QandAtemplate";
 function Analytics({globalQuizes,setGlobalQuizes}) {
-  const [clipBoardText,setClipBoardText]= useState('http://localhost:3000/takeQuiz/')
+  const [clipBoardText,setClipBoardText]= useState('https://quizzie0724.vercel.app/takeQuiz/')
   //to show update popup on clicking edit icon
   const [showupdatePopup,setShowupdatePopup]=useState(false)
   const [updateQuiz,setUpdateQuiz] = useState();
