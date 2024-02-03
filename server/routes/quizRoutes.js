@@ -146,6 +146,7 @@ router.put('/quiz/submit/:id',async(req,res)=>{
     const {id} = req.params;
     try {
         const quizData =req.body
+        // because if i include impression it updates the database impression with this impressions
         delete quizData.impressions;
         // const { impressions, ...quizDataToUpdate } = req.body;
         const updatedQuiz = await Quiz.findByIdAndUpdate(id, quizData, { new: true });
