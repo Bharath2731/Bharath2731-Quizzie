@@ -10,7 +10,7 @@ function AnalyticsQuiz({id}) {
               console.log(id)
               const response = await getQuizFunction(id)
               setQuiz(response.data.quiz)
-              console.log(quiz)
+              // console.log(quiz)
       
             } catch (error) {
               console.error(error);

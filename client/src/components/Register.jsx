@@ -189,7 +189,7 @@ function Register() {
                 <label htmlFor="email">Email</label>
                 <input
                   className = {`${errorSigninData.email?styles.inputError:styles.input}`}
-                  type="text"
+                  type="email"
                   id="email"
                   name="email"
                   value={signinData.email}

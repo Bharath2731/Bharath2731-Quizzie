@@ -47,7 +47,7 @@ function Analytics({globalQuizes,setGlobalQuizes}) {
   function handleShowDeleteQuiz(quiz_id){
     setShowDeleteQuiz(!showDeleteQuiz)
     setDeleteQuizId(quiz_id)
-    console.log(deleteQuizId)
+    // console.log(deleteQuizId)
   }
   
 function goToAnalyticsQuiz(quiz){
@@ -70,7 +70,7 @@ function showCopyToast(){
 function handleEditPopup(quiz){
   setUpdateQuiz(quiz)
   setShowupdatePopup(true)
-  console.log(quiz)
+  // console.log(quiz)
 }
   return (
       <div className={styles.container}>
